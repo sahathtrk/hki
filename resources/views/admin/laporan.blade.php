@@ -35,8 +35,9 @@
                             @csrf
                             <div class="p-4">
                                 <label for="judulDokumen" class="form-label">Judul Laporan</label>
-                               
-                                <input type="text" name="judul" class="form-control" id="judulDokumen" autofocus required> 
+
+                                <input type="text" name="judul" class="form-control" id="judulDokumen" autofocus
+                                    required>
                                 @error('judul')
                                     <p class="text-danger">{{ $message }}</p>
                                 @enderror
@@ -69,55 +70,59 @@
             </div>
         </div>
         <br><br>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Judul</th>
-                    <th scope="col">Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($data as $key => $value)
-                    <tr>
-                        <th scope="row">{{ ++$key }}</th>
-                        <td class="col-lg-8"> <a href="/admin/laporan/{{ $value->id }}">{{ $value->judul }}</a>
-                        </td>
-                        <td>
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" role="switch"
-                                            id="flexSwitchCheckChecked" checked>
-                                        <label class="form-check-label"
-                                            for="flexSwitchCheckChecked">{{ $value->aksi }}</label>
-                                    </div>
-
-                                </div>
-                                <div class="col">
-                                    <form action="/admin/laporan/delete/{{ $value->id }}" method="post">
-                                        @method('delete')
-                                        @csrf
-                                        <button type="submit" class="btn btn-danger"><span
-                                                class="fa-solid fa-trash"></span></button>
-                                    </form>
-                                </div>
-                            </div>
-
-
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <div class="fixed-bottom">
-            <div class="d-flex">
-                <div class="mx-auto">
-                    {{ $data->links() }}
+        <div>
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="text-center">No</th>
+                                <th scope="col" class="text-center">Judul</th>
+                                <th scope="col" class="text-center">Status</th>
+                                <th scope="col" class="text-center">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($data as $key => $value)
+                                <tr>
+                                    <th scope="row" class="text-center">{{ ++$key }}</th>
+                                    <td>
+                                        <a style="text-decoration:none;"
+                                            href="/admin/laporan/{{ $value->id }}">{{ $value->judul }}</a>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch"
+                                                id="flexSwitchCheckChecked" checked>
+                                            <label class="form-check-label"
+                                                for="flexSwitchCheckChecked">{{ $value->aksi }}</label>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <form action="/admin/laporan/delete/{{ $value->id }}" method="post">
+                                            @method('delete')
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger"><span
+                                                    class="fa-solid fa-trash"></span></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+    <div class="fixed-bottom">
+        <div class="d-flex">
+            <div class="mx-auto">
+                {{ $data->links() }}
+            </div>
+        </div>
+    </div>
+
+
 
 
 @endsection

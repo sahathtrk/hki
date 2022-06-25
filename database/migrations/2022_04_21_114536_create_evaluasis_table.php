@@ -16,8 +16,6 @@ class CreateEvaluasisTable extends Migration
         Schema::create('evaluasis', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
-            $table->string('jenis');
-            $table->string('aksi');
             $table->date('tanggal_berakhir');
             $table->timestamps();
         });

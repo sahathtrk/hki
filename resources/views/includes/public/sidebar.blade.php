@@ -1,6 +1,6 @@
 @if (auth()->user()->role=="admin")
 <div class="col-lg-2">
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar">
         <div class="position-sticky pt-3">
             <ul class="nav flex-column">
                 <li class="nav-item">
@@ -10,7 +10,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin_laporan') }}">
-                        Laporan
+                        Laporan Pelayanan
                     </a>
                 </li>
                 <li class="nav-item">
@@ -39,7 +39,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('pimpinan_laporan') }}">
-                        Laporan
+                        Laporan Pelayanan
                     </a>
                 </li>
                 <li class="nav-item">
@@ -70,7 +70,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('kepaladepartemen_laporan') }}">
-                        Laporan
+                        Laporan Pelayanan
                     </a>
                 </li>
                 <li class="nav-item">
@@ -101,7 +101,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('pelayan_laporan') }}">
-                        Laporan
+                        Laporan Pelayanan
                     </a>
                 </li>
                 <li class="nav-item">

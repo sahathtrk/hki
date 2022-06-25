@@ -72,66 +72,63 @@
             </div>
         </div>
     </div>
-    <div class="p-5 ">
-        <table class="table table-hover table-striped shadow">
-            <thead>
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Judul</th>
-                    <th scope="col">Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($data as $key => $value)
-                    <tr>
-                        <th scope="row">{{ ++$key }}</th>
-                        <td>{{ $value->judul }}</td>
+    <div>
+        <div class="row">
+            <div class="col-12 p-5">
+                <table class="table table-hover table-striped shadow">
+                    <tbody>
+                        @foreach ($data as $key => $value)
+                            <tr>
+                                <th scope="row">{{ ++$key }}</th>
+                                <td>{{ $value->judul }}</td>
 
-                        <td>
-                            <a href="
-                                @if (auth()->user()->role == 'admin') 
-                                /admin/dokumen/{{ $value->id }}
+                                <td>
+                                    <a href="
+                                @if (auth()->user()->role == 'admin') /admin/dokumen/{{ $value->id }}
                                 @elseif (auth()->user()->role == 'pimpinan') 
                                 /pimpinan/dokumen/{{ $value->id }}
                                 @elseif (auth()->user()->role == 'kepaladepartemen')
                                 /kepaladepartemen/dokumen/{{ $value->id }} 
                                 @elseif (auth()->user()->role == 'pelayan')
                                 /pelayan/dokumen/{{ $value->id }} @endif
-                                " class="btn btn-primary"><i class="fa-solid fa-circle-info"></i>
-                                Detail</a>
+                                "
+                                        class="btn btn-primary">
+                                        <i class="far fa-eye"></i></a>
 
-                            @if (auth()->user()->role == 'admin') 
-                            <form action="/admin/laporan/edit/{{ $value->id }}" method="post">
-                                @csrf
-                                <a class="btn btn-warning" type="submit"><i class="fa-solid fa-gear"></i>
-                                    Edit</a>
-                            </form>
-                            @elseif (auth()->user()->role == 'pimpinan') 
-                            <form action="/admin/laporan/edit/{{ $value->id }}" method="post">
-                                @csrf
-                                <a class="btn btn-warning" type="submit"><i class="fa-solid fa-gear"></i>
-                                    Edit</a>
-                            </form>
-                            @elseif (auth()->user()->role == 'kepaladepartemen') 
-                            <form action="/admin/laporan/edit/{{ $value->id }}" method="post">
-                                @csrf
-                                <a class="btn btn-warning" type="submit"><i class="fa-solid fa-gear"></i>
-                                    Edit</a>
-                            </form>
-                            @endif
+                                    @if (auth()->user()->role == 'admin')
+                                        <form action="/admin/laporan/edit/{{ $value->id }}" method="post">
+                                            @csrf
+                                            <a class="btn btn-warning" type="submit"><i
+                                                    class="fas fa-cog"></i></a>
+                                        </form>
+                                    @elseif (auth()->user()->role == 'pimpinan')
+                                        <form action="/admin/laporan/edit/{{ $value->id }}" method="post">
+                                            @csrf
+                                            <a class="btn btn-warning" type="submit"><i
+                                                    class="fas fa-cog"></i></a>
+                                        </form>
+                                    @elseif (auth()->user()->role == 'kepaladepartemen')
+                                        <form action="/admin/laporan/edit/{{ $value->id }}" method="post">
+                                            @csrf
+                                            <a class="btn btn-warning" type="submit"><i
+                                                    class="fas fa-cog"></i></a>
+                                        </form>
+                                    @endif
 
-                            @if (auth()->user()->role == 'admin')
-                            <form action="/admin/dokumen/deleteDokumen/{{ $value->id }}" method="POST" >
-                                @method('delete')
-                                @csrf
-                                <input class="btn btn-danger" type="submit" value="Hapus">
-                            </form>
-                            @endif
-                        </td>
+                                    @if (auth()->user()->role == 'admin')
+                                        <form action="/admin/dokumen/deleteDokumen/{{ $value->id }}" method="POST">
+                                            @method('delete')
+                                            @csrf
+                                            <button class="btn btn-danger" type="submit" value="Hapus"><i class="fas fa-trash"></i></button>
+                                        </form>
+                                    @endif
+                                </td>
 
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 @endsection

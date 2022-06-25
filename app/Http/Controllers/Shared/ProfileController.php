@@ -353,6 +353,7 @@ class ProfileController extends Controller
             }
         }
     }
+    
     public function updateProfileFormal(Request $request, $id)
     {
         $this->validate(

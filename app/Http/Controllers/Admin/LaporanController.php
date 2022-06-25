@@ -46,63 +46,15 @@ class LaporanController extends Controller
         if ($addLaporan) {
             if (auth()->user()->role == "admin") {
                 // return redirect()->route('admin_laporan')->with('message', 'Berhasil menambah laporan');
-                return redirect('/admin/laporan/countPertanyaan/' . $idTerakhir)->with('message', 'Berhasil menambah laporan');
+                return redirect('/admin/laporan/{id}' . $idTerakhir)->with('message', 'Berhasil menambah laporan');
             }
         }
     }
 
-    public function countPertanyaan($id)
-    {
-        $data = DB::table('laporans')->where('id', '=', $id)->first();
-        $idLaporan = $id;
-        return view('admin.laporan-count', compact('data', 'idLaporan'));
-    }
-
-    public function addCountPertanyaan(Request $request)
-    {
-        // dd($request);
-        $this->validate(
-            $request,
-            [
-                'jawabanText' => 'required|numeric',
-                'pilihanBerganda' => 'required|numeric',
-                'kotakCentang' => 'required|numeric',
-                'uploadFile' => 'required|numeric',
-            ],
-            [
-                'jawabanText.required' => 'Silahkan isi Jawaban Text',
-                'pilihanBerganda.required' => 'Silahkan isi Pilihan Berganda',
-                'kotakCentang.required' => 'Silahkan isi Kotak Centang',
-                'uploadFile.required' => 'Silahkan isi Upload File',
-                'jawabanText.numeric' => 'Silahkan isi dengan angka',
-                'pilihanBerganda.numeric' => 'Silahkan isi dengan angka',
-                'kotakCentang.numeric' => 'Silahkan isi dengan angka',
-                'uploadFile.numeric' => 'Silahkan isi dengan angka',
-
-            ]
-        );
-
-        $idLaporan = $request->idLaporan;
-        $jawabanText = $request->jawabanText;
-        $pilihanBerganda = $request->pilihanBerganda;
-        $kotakCentang = $request->kotakCentang;
-        $uploadFIle = $request->uploadFile;
-
-        
-
-
-        // dd(Pertanyaan::orderBy('id', "desc")->get());
-
-
-        // return redirect()->route('admin_addCountPertanyaan');
-    }
-
-
-
     public function getAllLaporan()
     {
         $data = DB::table('laporans')->orderBy('id', 'desc')->paginate(8);
-        return view('admin/laporan', compact('data'));
+        return view('admin.laporan', compact('data'));
     }
 
     public function getLaporanById($id)

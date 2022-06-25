@@ -27,8 +27,6 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/admin/laporan/', 'Admin\LaporanController@getAllLaporan')->name('admin_laporan');
     Route::get('/admin/laporan/{id}', 'Admin\LaporanController@getLaporanById')->name('admin_getLaporanById');
     Route::post('/admin/laporan/addLaporan', 'Admin\LaporanController@addLaporan')->name('admin_addLaporan');
-    Route::get('/admin/laporan/countPertanyaan/{id}', 'Admin\LaporanController@countPertanyaan')->name('admin_countPertanyaan');
-    Route::post('/admin/laporan/addCountPertanyaan', 'Admin\LaporanController@addCountPertanyaan')->name('admin_addCountPertanyaan');
     Route::get('/admin/laporan/addPertanyaan/{id}', 'Admin\LaporanController@addPertanyaan')->name('admin_addPertanyaan');
     Route::delete('/admin/laporan/delete/{id}', 'Admin\LaporanController@deleteLaporan')->name('admin_deleteLaporan');
     Route::patch('/admin/laporan/updateAction{id}', 'Admin\LaporanController@updateAction')->name('admin_updateAction');
@@ -43,22 +41,8 @@ Route::middleware('isAdmin')->group(function () {
     Route::get('/admin/evaluasi/pimpinan/', 'Admin\EvaluasiController@pimpinan')->name('evaluasi_pimpinan');
 
     Route::get('/admin/users', 'Admin\UsersController@getAllUsers')->name('admin_users');
-    Route::get('/admin/users/{id}', 'Admin\UsersController@getUsersById')->name('');
-    Route::delete('/admin/usersprofile', 'Admin\UsersController@deleteUsers')->name('');
-
-    Route::get('/admin/profile/', 'Shared\ProfileController@profilePribadi')->name('admin_profile');
-    Route::get('/admin/profile/data-gerejawi', 'Shared\ProfileController@profileGerejawi')->name('admin_profilegerejawi');
-    Route::get('/admin/profile/data-formal', 'Shared\ProfileController@profileFormal')->name('admin_profileformal');
-    Route::get('/admin/profile/data-informal', 'Shared\ProfileController@profileInformal')->name('admin_profileinformal');
-    Route::get('/admin/profile/data-pasangan', 'Shared\ProfileController@profilePasangan')->name('admin_profilepasangan');
-    Route::get('/admin/profile/data-anak', 'Shared\ProfileController@profileAnak')->name('admin_profileanak');
-
-    Route::post('/admin/profile/add', 'Shared\ProfileController@addProfilePribadi')->name('admin_profile_add');
-    Route::post('/admin/profile/data-gerejawi/add', 'Shared\ProfileController@addProfileGerejawi')->name('admin_profilegerejawi_add');
-    Route::post('/admin/profile/data-formal/add', 'Shared\ProfileController@addProfileFormal')->name('admin_profileformal_add');
-    Route::post('/admin/profile/data-informal/add', 'Shared\ProfileController@addProfileInformal')->name('admin_profileinformal_add');
-    Route::post('/admin/profile/data-pasangan/add', 'Shared\ProfileController@addProfilePasangan')->name('admin_profilepasangan_add');
-    Route::post('/admin/profile/data-anak/add', 'Shared\ProfileController@addProfileAnak')->name('admin_profileanak_add');
+    Route::get('/admin/users/{id}', 'Admin\UsersController@getUsersById')->name('admin_getUsersbyId');
+    Route::delete('/admin/users/delete/{id}', 'Admin\UsersController@deleteUsers')->name('');
 });
 
 //Pucuk Pimpinan

@@ -14,81 +14,55 @@ class EvaluasiSeeder extends Seeder
     {
         DB::table('evaluasis')->insert([
             'judul' => Str::random(10),
-            'jenis' => Str::random(10),
             'tanggal_berakhir' => "2022-7-12",
-            'aksi' => 'Aktif'
         ]);
         DB::table('evaluasis')->insert([
             'judul' => Str::random(10),
-            'jenis' => Str::random(10),
             'tanggal_berakhir' => "2022-7-12",
-            'aksi' => 'Aktif'
         ]);
         DB::table('evaluasis')->insert([
             'judul' => Str::random(10),
-            'jenis' => Str::random(10),
             'tanggal_berakhir' => "2022-7-12",
-            'aksi' => 'Aktif'
         ]);
         DB::table('evaluasis')->insert([
             'judul' => Str::random(10),
-            'jenis' => Str::random(10),
             'tanggal_berakhir' => "2022-7-12",
-            'aksi' => 'Aktif'
         ]);
         DB::table('evaluasis')->insert([
             'judul' => Str::random(10),
-            'jenis' => Str::random(10),
             'tanggal_berakhir' => "2022-7-12",
-            'aksi' => 'Aktif'
         ]);
         DB::table('evaluasis')->insert([
             'judul' => Str::random(10),
-            'jenis' => Str::random(10),
             'tanggal_berakhir' => "2022-7-12",
-            'aksi' => 'Aktif'
         ]);
         DB::table('evaluasis')->insert([
             'judul' => Str::random(10),
-            'jenis' => Str::random(10),
             'tanggal_berakhir' => "2022-7-12",
-            'aksi' => 'Aktif'
         ]);
         DB::table('evaluasis')->insert([
             'judul' => Str::random(10),
-            'jenis' => Str::random(10),
             'tanggal_berakhir' => "2022-7-12",
-            'aksi' => 'Aktif'
         ]);
         DB::table('evaluasis')->insert([
             'judul' => Str::random(10),
-            'jenis' => Str::random(10),
             'tanggal_berakhir' => "2022-7-12",
-            'aksi' => 'Aktif'
         ]);
         DB::table('evaluasis')->insert([
             'judul' => Str::random(10),
-            'jenis' => Str::random(10),
             'tanggal_berakhir' => "2022-7-12",
-            'aksi' => 'Aktif'
         ]);
         DB::table('evaluasis')->insert([
             'judul' => Str::random(10),
-            'jenis' => Str::random(10),
             'tanggal_berakhir' => "2022-7-12",
-            'aksi' => 'Aktif'
         ]);
         DB::table('evaluasis')->insert([
             'judul' => Str::random(10),
-            'jenis' => Str::random(10),
             'tanggal_berakhir' => "2022-7-12",
-            'aksi' => 'Aktif'
         ]);
         DB::table('evaluasis')->insert([
             'judul' => Str::random(10),
-            'jenis' => Str::random(10),
             'tanggal_berakhir' => "2022-7-12",
-            'aksi' => 'Aktif'
         ]);
     }
 }

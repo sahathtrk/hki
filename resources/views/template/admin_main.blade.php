@@ -25,7 +25,6 @@
         </div>
         @include('includes.public.script')
     </div>
-    <script src="{{ asset('fa/js/all.min.js') }}"></script>
 </body>
 
 </html>

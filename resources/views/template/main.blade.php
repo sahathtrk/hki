@@ -31,7 +31,7 @@
         var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
         myModal.show();
     </script>
-    <script src="{{ asset('fa/js/all.min.js') }}"></script>
+
     @endif
 </body>
 

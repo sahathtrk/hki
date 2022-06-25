@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class EvaluasiController extends Controller
 {
@@ -21,9 +22,32 @@ class EvaluasiController extends Controller
         return view ('admin/evaluasi/detail', compact('data'));
     }
 
-    public function addEvaluasi()
+    public function addEvaluasi(Request $request)
     {
-        ;
+        {
+            $this->validate(
+                $request,
+                [
+                    'judul' => 'required',
+                    'tanggal_berakhir' => 'required',
+                ],
+            );
+    
+            $id_user = Auth::id();
+            $judul = $request->judul;
+            $tanggal_berakhir = $request->tanggal_berakhir;
+    
+            $addEvaluasi = DB::table('evaluasis')->insert([
+                'judul' => $judul,
+                'tanggal_berakhir' => $tanggal_berakhir,
+            ]);
+    
+            if ($addEvaluasi) {
+                if (auth()->user()->role == "admin") {
+                    return redirect()->route('admin_evaluasi');
+                }
+            }
+        }
     }
 
     public function deleteEvaluasi($id)
@@ -39,15 +63,5 @@ class EvaluasiController extends Controller
             'status' => 'aktif',
         ]);
         return redirect()->route('admin/evaluasi');
-    }
-
-    public function addFormulir()
-    {
-        ;
-    }
-
-    public function pimpinan()
-    {
-        return view('admin/evaluasi/pimpinan/');
     }
 }

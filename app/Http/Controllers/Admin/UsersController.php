@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\DB;
 class UsersController extends Controller
 {
     public function getAllUsers(){
-        $data = DB::table('users')->get();
+        $data = DB::table('users')->orderBy('id', 'desc')->paginate(8);
         return view ('admin.users', compact('data'));
     }
 
     public function getUsersById($id){
-        $data = DB::table('users')->where('id_user', '=', $id)->get();
+        $data = DB::table('users')->where('id', '=', $id)->first();
         return view ('admin.users.details', compact('data'));
     }
 
